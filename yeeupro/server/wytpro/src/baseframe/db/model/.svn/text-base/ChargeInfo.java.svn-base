@@ -1,0 +1,37 @@
+package game.db.model;
+
+
+public class ChargeInfo {
+      private int  vcoin;
+      private int tnum;
+      private int pnum;
+      private String platfrom;
+	public int getVcoin() {
+		return vcoin;
+	}
+	public void setVcoin(int vcoin) {
+		this.vcoin = vcoin;
+	}
+	public int getTnum() {
+		return tnum;
+	}
+	public void setTnum(int tnum) {
+		this.tnum = tnum;
+	}
+	public int getPnum() {
+		return pnum;
+	}
+	public void setPnum(int pnum) {
+		this.pnum = pnum;
+	}
+	public String getPlatfrom() {
+		return platfrom;
+	}
+	public void setPlatfrom(String platfrom) {
+		this.platfrom = platfrom;
+	}
+	
+	
+	
+      
+}

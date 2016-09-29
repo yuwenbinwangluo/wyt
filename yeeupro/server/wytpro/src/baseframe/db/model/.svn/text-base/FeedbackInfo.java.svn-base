@@ -1,0 +1,56 @@
+package game.db.model;
+
+import game.util.Seqdb;
+
+
+
+
+public class FeedbackInfo {
+	
+	   /**
+	    * id
+	    */
+    private long id;
+    private long playerID;
+    private String playerName;
+    private String messageType;
+    private String messageInfo ;
+
+    public static Seqdb seq=new Seqdb();
+	public synchronized static long getGlobalID(){
+		return seq.getGlobalID();
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public long getPlayerID() {
+		return playerID;
+	}
+	public void setPlayerID(long playerID) {
+		this.playerID = playerID;
+	}
+	public String getPlayerName() {
+		return playerName;
+	}
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+	public String getMessageType() {
+		return messageType;
+	}
+	public void setMessageType(String messageType) {
+		this.messageType = messageType;
+	}
+	public String getMessageInfo() {
+		return messageInfo;
+	}
+	public void setMessageInfo(String messageInfo) {
+		this.messageInfo = messageInfo;
+	}
+	
+	
+	
+}

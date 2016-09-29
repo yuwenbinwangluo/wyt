@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup
+    android:id="@+id/menugroup"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    android:weightSum="4"
+    android:background="@android:color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <RadioButton
+            android:id="@+id/homebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:drawablePadding="2dp"
+            android:button="@null"
+            android:textSize="16dp"
+            android:text="@string/homebtn"
+            android:drawableTop="@drawable/menu_home_selector" />
+        <RadioButton
+            android:id="@+id/prizebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:drawablePadding="2dp"
+            android:button="@null"
+            android:text="@string/prizebtn"
+            android:textSize="16dp"
+            android:drawableTop="@drawable/menu_luck_selector" />
+        <RadioButton
+            android:id="@+id/userbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:drawablePadding="2dp"
+            android:button="@null"
+            android:text="@string/userbtn"
+            android:textSize="16dp"
+            android:drawableTop="@drawable/menu_self_selector" />
+        <RadioButton
+            android:id="@+id/morebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:drawablePadding="2dp"
+            android:button="@null"
+            android:text="@string/morebtn"
+            android:textSize="16dp"
+            android:drawableTop="@drawable/menu_more_selector" />
+
+</RadioGroup>
+

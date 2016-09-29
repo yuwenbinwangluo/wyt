@@ -1,0 +1,94 @@
+package baseframe.core;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+
+import com.demo.yu.yeeuproject.R;
+
+
+public class GSimpleSelectButton extends GSimpleButton {
+
+	private boolean isSelected = false;
+
+	public GSimpleSelectButton(Context context) {
+		super(context);
+	}
+
+	public GSimpleSelectButton(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		initAtt(context, attrs);
+	}
+
+	public GSimpleSelectButton(Context context, AttributeSet attrs,int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+		initAtt(context, attrs);
+	}
+
+	@Override
+	protected void initAtt(Context context, AttributeSet attrs) {
+		TypedArray attr = getContext().obtainStyledAttributes(attrs, R.styleable.SimpleButton, 0, 0);
+		upFName = attr.getResourceId(R.styleable.SimpleButton_upSrc, 0);
+		downFName = attr.getResourceId(R.styleable.SimpleButton_downSrc, 0);
+        _mText=attr.getString(R.styleable.SimpleButton_text);
+        _mtx=attr.getInt(R.styleable.SimpleButton_tx, Integer.MAX_VALUE);
+        _mty=attr.getInt(R.styleable.SimpleButton_ty, Integer.MAX_VALUE);
+		attr.recycle();
+		attr = getContext().obtainStyledAttributes(attrs,R.styleable.SimpleSelectButton, 0, 0);
+		isSelected = attr.getBoolean(R.styleable.SimpleSelectButton_isSelected,false);
+		attr.recycle();
+		initMember(context);
+        bg.setImageResource(upFName);
+	}
+	public void setSrc(Context context,int upFName,int downFName,boolean isSelected){
+		super.setSrc(upFName, downFName);
+        this.isSelected=isSelected;
+		initMember(context);
+	}
+	@Override
+	protected void initMember(Context context){
+		bg = new GImageView(context);
+		setBtnState(isSelected);
+	    if(_mText!=""){
+			txt=new GTextField(context);
+			txt.setText(_mText);
+		}
+		addEvent();
+	}
+	@Override
+	protected void addEvent() {
+		setOnTouchListener(this);
+	}
+
+	@Override
+	public boolean onTouch(View v, MotionEvent event) {
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_UP: //
+			if (clickListener != null) {
+				clickListener.onClick(v);
+			}
+			break;
+		}
+		return true;
+	}
+
+	@Override
+	public void setBtnState(boolean isSelected) {
+		if (isSelected) {
+			bg.setImageResource(downFName);
+		} else {
+			bg.setImageResource(upFName);
+		}
+	}
+
+	@Override
+	public void dispose() {
+		isSelected = false;
+
+		super.dispose();
+
+	}
+
+}

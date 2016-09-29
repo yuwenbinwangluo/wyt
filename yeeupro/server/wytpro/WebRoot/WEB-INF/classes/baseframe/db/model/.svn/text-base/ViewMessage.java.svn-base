@@ -1,0 +1,39 @@
+package game.db.model;
+
+
+public class ViewMessage {
+	 private String cmdType;
+     private String bullent;
+     private int maintain;
+     private int jump;
+	public String getBullent() {
+		return bullent;
+	}
+	public void setBullent(String bullent) {
+		this.bullent = bullent;
+	}
+	public int getMaintain() {
+		return maintain;
+	}
+	public void setMaintain(int maintain) {
+		this.maintain = maintain;
+	}
+	public String getCmdType() {
+		return cmdType;
+	}
+	public void setCmdType(String cmdType) {
+		this.cmdType = cmdType;
+	}
+	public int getJump() {
+		return jump;
+	}
+	public void setJump(int jump) {
+		this.jump = jump;
+	}
+	
+	
+
+	
+	
+     
+}

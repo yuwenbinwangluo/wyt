@@ -1,0 +1,127 @@
+package baseframe.core;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import com.yu.wyt.R;
+
+import baseframe.base.IBaseObject;
+import baseframe.config.BaseConfig;
+import baseframe.tools.Util;
+
+
+/**
+ * 
+ * @author yu
+ * 线性布局容器-增加描边功能
+ */
+public class GLinearLayout extends LinearLayout implements IBaseObject{
+	private int _mBorderColor = Color.RED;
+	private int _mBoderSize = BaseConfig.NUM_2;
+    private int _mBorderDir=BaseConfig.LEFT|BaseConfig.TOP|BaseConfig.RIGHT|BaseConfig.DOWN;
+	private boolean isBorderEnable = false;
+	private Paint _mPaint = null;
+
+	public GLinearLayout(Context context) {
+		super(context);
+	}
+	public GLinearLayout(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		initAttr(attrs);
+	}
+
+	public GLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+		initAttr(attrs);
+	}
+
+	private void initAttr(AttributeSet attrs) {
+		TypedArray attr = getContext().obtainStyledAttributes(attrs,
+				R.styleable.Border, 0, 0);
+		_mBorderColor = attr.getColor(R.styleable.Border_b_color, Color.BLACK);
+		_mBoderSize = attr.getDimensionPixelSize(R.styleable.Border_size,
+				BaseConfig.NUM_2);
+		boolean _isBorderEnable = attr.getBoolean(R.styleable.Border_enable, false);
+		if (_isBorderEnable) {
+			setBorderEnable(_isBorderEnable);
+		}
+		attr.recycle();
+	}
+
+	public void setBorderEnable(boolean borderEnable) {
+		if (isBorderEnable != borderEnable) {
+			isBorderEnable = borderEnable;
+			if (isBorderEnable) {
+				if (_mPaint == null) {
+					_mPaint = new Paint();
+					_mPaint.setColor(_mBorderColor);
+				}
+			}
+			invalidate();
+		}
+	}
+
+	public void setBorderSize(int size) {
+		if (_mBoderSize != size) {
+			_mBoderSize = size;
+			invalidate();
+		}
+	}
+
+	public void setBorderColor(int color) {
+		_mBorderColor = color;
+		if (_mBorderColor != color) {
+			_mPaint.setColor(_mBorderColor);
+			invalidate();
+		}
+	}
+
+	public boolean isBorderEnable() {
+		return isBorderEnable;
+	}
+
+	@Override
+	protected void dispatchDraw(Canvas canvas) {
+		super.dispatchDraw(canvas);
+		if (isBorderEnable) {
+			if (_mBoderSize > 0) {
+				int vw = getWidth();
+				int vh = getHeight();
+				   if(Util.isSuit(_mBorderDir, BaseConfig.LEFT)){
+			            Util.tempRect.setEmpty();
+			            Util.tempRect.set(0, 0, _mBoderSize, vh);
+			            canvas.drawRect(Util.tempRect, _mPaint);
+			        }
+			        if(Util.isSuit(_mBorderDir, BaseConfig.TOP)){
+			            Util.tempRect.setEmpty();
+			            Util.tempRect.set(0, 0,vw, _mBoderSize);
+			            canvas.drawRect(Util.tempRect, _mPaint);
+			        }
+			        if(Util.isSuit(_mBorderDir, BaseConfig.RIGHT)){
+			            Util.tempRect.setEmpty();
+			            Util.tempRect.set(vw - _mBoderSize, 0, vw, vh);
+			            canvas.drawRect(Util.tempRect, _mPaint);
+			        }
+			        if(Util.isSuit(_mBorderDir, BaseConfig.DOWN)){
+			            Util.tempRect.setEmpty();
+			            Util.tempRect.set(0, vh - _mBoderSize, vw, vh);
+			            canvas.drawRect(Util.tempRect, _mPaint);
+			        }
+			}
+		}
+	}
+	@Override
+	public void dispose() {
+		_mPaint=null;
+		if(getParent()!=null){
+			((ViewGroup)(getParent())).removeView(this);
+		}
+
+	}
+}

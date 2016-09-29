@@ -1,0 +1,276 @@
+package baseframe.tools;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Handler;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.List;
+
+import baseframe.base.IBaseObject;
+import baseframe.config.BaseConfig;
+import baseframe.core.GImageView;
+import baseframe.core.GPoint;
+import baseframe.core.LoadFile;
+import baseframe.resource.LoadManager;
+
+public class Util {
+	public static final String LOG_DEFAULT_TAG="YeeuOnline_log";
+	public static final RectF tempRect=new RectF();
+	public static final Point tempPoint=new Point();
+	
+	
+	public static void logInfo(String msg){
+		if(msg!=null){
+			Log.i(Util.LOG_DEFAULT_TAG, msg);
+		}
+	}
+	public static void logError(String msg){
+		if(msg!=null){
+			Log.e(Util.LOG_DEFAULT_TAG, msg);
+		}
+	}
+	public static void logToastInfo(Context context,String msg){
+		if(msg!=null){
+			Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	public static boolean isSuit(int composite,int sing){
+		return  (composite&sing)!=0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void noTitleBar(Activity activity){
+		activity.requestWindowFeature(Window.FEATURE_NO_TITLE);//no titleBar
+	}
+	public static void fullScreen(Activity activity){
+		activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);//
+	}
+	public static void fullScreenAndNoTitleBar(Activity activity){
+		Util.noTitleBar(activity);
+		Util.fullScreen(activity);
+	}
+	
+	public static void loadOneResource(String url,int msgId,Handler handler){
+		LoadFile file=new LoadFile();
+		file.url=url;
+		file.id=msgId;
+		file.handler=handler;
+		LoadManager.addLoadFile(file);
+	}
+	
+	
+	
+	public static void removeEventListener(View v,int type){
+		if(v!=null){
+			if(type==BaseConfig.CLICK){
+				v.setOnClickListener(null);
+			}else if(type==BaseConfig.TOUCH){
+				v.setOnTouchListener(null);
+			}else if(type==BaseConfig.FOCUSCHANGE){
+				v.setOnFocusChangeListener(null);
+			}
+		}
+	}
+	public static void removeHandler(Handler handler){
+		if(handler!=null){
+			handler.removeCallbacksAndMessages(null);
+		}
+	}
+	
+	public static void disposeObject(IBaseObject obj){
+		if(obj!=null){
+			obj.dispose();
+		}
+	}
+	public static void disposeObjectWithData(IBaseObject obj){
+		if(obj!=null){
+			if(obj instanceof  GImageView){//image
+				BitmapDrawable d=(BitmapDrawable)(((GImageView)obj).getDrawable());
+				if(d!=null){
+					Bitmap b=d.getBitmap();
+					if(b!=null){
+						b.recycle();
+					}
+				}
+			}
+			obj.dispose();
+		}
+	}
+	public static void disposeList(List<?> li){
+		if(li!=null){
+			IBaseObject obj=null;
+			for(int i=0;i<li.size();i++){
+				obj=(IBaseObject)li.get(i);
+				if(obj!=null){
+					obj.dispose();
+				}
+			}
+			li.clear();
+		}
+	}
+
+	public enum LogType
+	{
+		Debug,
+		Warnning,
+		Error
+	}
+
+	//log输出
+	public static void Log(String tag,String msg,LogType type)
+	{
+		if(type==LogType.Debug)
+		{
+			Log.d(tag,msg);
+		}else if(type==LogType.Warnning)
+		{
+			Log.w(tag, msg);
+		}
+		else if(type==LogType.Error)
+		{
+			Log.e(tag,msg);
+		}
+	}
+
+
+
+	//矩形区域中是否包含点
+	public static boolean isContain(float px,float py,float tx,float ty,float tw,float th)
+	{
+		return px>=tx&&px<=tx+tw&&py>=ty&&py<=ty+th;
+	}
+	//在矩形区域内随机一个点
+	public static GPoint getRandomPoint(float x,float y,float w,float h)
+	{
+		return new GPoint((float)(Math.random()*(w-x)+x),(float)(Math.random()*(h-y)+y));
+	}
+	//在矩形区域内随机一个点
+	public static GPoint getRandomPoint(float x,float y,float w,float h,GPoint point)
+	{
+		point.x=(float)(Math.random()*w+x);
+		point.y=(float)(Math.random()*h+y);
+		return point;
+	}
+	//在矩形区域内随机一个点
+	public static GPoint getRandomPointPoint(float x,float y,float mx,float my,GPoint point)
+	{
+		point.x=(float)(Math.random()*(mx-x)+x);
+		point.y=(float)(Math.random()*(my-y)+y);
+		return point;
+	}
+	public static Object[] randomArray(Object[] arr)
+	{
+		int index = 0;
+		int rlen = arr.length;
+		int len = rlen;
+		Object temp;
+		for (int i = 0; i < len; i++) {
+			index = (int)(Math.random() * rlen);
+			temp = arr[index];
+			arr[index]=arr[len-1];
+			arr[len-1]=temp;
+
+			rlen--;
+		}
+		return arr;
+	}
+	//随机列表
+	public static void randomList(List<Object> list)
+	{
+		int index = 0;
+		int rlen = list.size();
+		int len = rlen;
+		Object temp;
+		for (int i = 0; i < len; i++) {
+			index = (int)(Math.random() * rlen);
+			temp = list.get(index);
+			list.remove(index);
+			list.add(temp);
+			rlen--;
+		}
+	}
+	//根据手机的分辨率从 dp 的单位 转成为 px(像素)
+	public static int dip2px(Context context, float dpValue) {
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (dpValue * scale + 0.5f);
+	}
+
+	//根据手机的分辨率从 px(像素) 的单位 转成为 dp
+	public static int px2dip(Context context, float pxValue) {
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (pxValue / scale + 0.5f);
+	}
+
+	//弧度转角度
+	public static double getDegreesByRadians(double radians)
+	{
+		return radians * 180/Math.PI;
+	}
+	//角度转弧度
+	public static double GetRadiansByDegrees(double degrees)
+	{
+		return degrees * Math.PI/180;
+	}
+	public static float getDistanceTowPoint(float curpx,float curpy,float targetpx,float targetpy){
+		float disx=targetpx-curpx;
+		float disy=targetpy-curpy;
+		return (float)(Math.sqrt(disx*disx+disy*disy));
+	}
+	public static float getDistanceTowPosx(float curpx,float targetpx){
+		return Math.abs(targetpx-curpx) ;
+	}
+	public static float getDistanceTowPointNoSq(float curpx,float curpy,float targetpx,float targetpy){
+		float disx=targetpx-curpx;
+		float disy=targetpy-curpy;
+		return disx*disx+disy*disy;
+	}
+
+	public static GImageView getGImageView(Context context,ViewGroup parent,int resId,float x,float y,int width,int height)
+	{
+		GImageView view=new GImageView(context);
+		view.setLayoutParams(new FrameLayout.LayoutParams(width, height));//大小可以动态获取
+		view.setScaleType(ImageView.ScaleType.FIT_XY);
+		view.setImage(resId);
+		view.setX(x);
+		view.setY(y);
+		parent.addView(view);
+		return view;
+	}
+	public static void removeFromParent(View view)
+	{
+		if(view!=null&&view.getParent()!=null)
+		{
+			((ViewGroup)view.getParent()).removeView(view);
+		}
+	}
+
+
+
+
+
+
+
+}

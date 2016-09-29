@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_grey_3">
+
+    <!--搜索头-->
+    <baseframe.exts.PercentRelativeLayout
+        android:id="@+id/search_head_box"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@android:color/white">
+        <RelativeLayout
+            android:id="@+id/locationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/pin_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/pin"/>
+            <TextView
+                android:id="@+id/areatxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_country"
+                android:textColor="@color/color_blue_0"
+                android:layout_toRightOf="@id/pin_btn"
+                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <EditText
+            android:id="@+id/search_text"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            app:layout_widthPercent="60%"
+            android:singleLine="true"
+            android:textColor="@color/color_grey_1"
+            android:background="@drawable/editor_text_conner"/>
+        <ImageButton
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/search_press"
+            android:layout_centerVertical="true"
+            style="@style/Base.Widget.AppCompat.Button.ImageButton0"
+            android:layout_alignRight="@id/search_text"/>
+        <ImageButton
+            android:id="@+id/sweep_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/sweep_up"
+            android:layout_centerVertical="true"
+            style="@style/Base.Widget.AppCompat.Button.ImageButton0"
+            android:layout_marginRight="4dp"
+            android:layout_alignParentRight="true"/>
+
+
+    </baseframe.exts.PercentRelativeLayout>
+
+    <!--滚动内容-->
+    <baseframe.core.GScrollView
+        android:id="@+id/main_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/search_head_box"
+        android:background="@color/color_grey_3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_grey_3">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/main_ads_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@android:color/white">
+            </android.support.v4.view.ViewPager>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/main_func_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_below="@id/main_ads_viewpager"
+                android:background="@android:color/white">
+            </android.support.v4.view.ViewPager>
+            <RelativeLayout
+                android:id="@+id/recommendtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_func_viewpager"
+                android:padding="12dp"
+                android:background="@android:color/white">
+                <RelativeLayout
+                    android:id="@+id/line4"
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_org_0"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/line4"
+                    android:textSize="20sp"
+                    android:text="@string/recommendlist"/>
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/recommendlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recommendtitle"
+                android:paddingBottom="80dp"
+                android:orientation="vertical"
+                android:background="@android:color/white">
+
+            </LinearLayout>
+        </RelativeLayout>
+    </baseframe.core.GScrollView>
+
+    <include layout="@layout/main_menu_layout"/>
+
+
+
+</RelativeLayout>

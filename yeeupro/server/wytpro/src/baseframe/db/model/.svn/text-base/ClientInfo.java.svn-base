@@ -1,0 +1,48 @@
+package game.db.model;
+
+import game.util.Seqdb;
+
+
+
+
+public class ClientInfo {
+	
+	   /**
+	    * id
+	    */
+    private long id;
+    private String messageInfo ;
+    private long playerID;
+    private String platform;
+  
+    public static Seqdb seq=new Seqdb();
+	public synchronized static long getGlobalID(){
+		return seq.getGlobalID();
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getMessageInfo() {
+		return messageInfo;
+	}
+	public void setMessageInfo(String messageInfo) {
+		this.messageInfo = messageInfo;
+	}
+	public long getPlayerID() {
+		return playerID;
+	}
+	public void setPlayerID(long playerID) {
+		this.playerID = playerID;
+	}
+	public String getPlatform() {
+		return platform;
+	}
+	public void setPlatform(String platform) {
+		this.platform = platform;
+	}
+	
+	
+}

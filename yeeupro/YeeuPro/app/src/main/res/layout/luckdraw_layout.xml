@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/luckdraw_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/titlebar_height"
+        android:background="@color/color_org_0">
+        <ImageView
+            android:id="@+id/backbtn0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/swards"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/luckdraw_title"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/luck_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/luckdraw_title"
+        android:background="@color/color_org_1">
+        <ImageView
+            android:id="@+id/treasure_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/treasurebox_bg"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
+        <ImageView
+            android:id="@+id/treasurebox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/treasurebox_close" />
+        <TextView
+            android:id="@+id/luckdraw_msg0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_org_blank"
+            android:text="@string/luckdraw_msg0"/>
+        <TextView
+            android:id="@+id/luckdraw_msg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_org_blank"
+            android:text="@string/luckdraw_msg1"/>
+        <RelativeLayout
+            android:id="@+id/luckdraw_bg0"
+            android:layout_width="260dp"
+            android:layout_height="140dp"
+            android:background="@drawable/luckdraw_bg0"/>
+        <Button
+            android:id="@+id/luckdraw_btn0"
+            android:layout_width="252dp"
+            android:layout_height="40dp"
+            android:text="@string/luckdraw_btn0"
+            android:textColor="@android:color/white"
+            android:background="@drawable/luckdrawbtn0"/>
+        <TextView
+            android:id="@+id/luckdraw_msg99"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_org_0"
+            android:textSize="24dp"/>
+
+    </FrameLayout>
+
+
+</RelativeLayout>

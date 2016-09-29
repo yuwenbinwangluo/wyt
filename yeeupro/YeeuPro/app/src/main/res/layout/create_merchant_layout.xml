@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/merchantbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/titlebar_blue">
+        <ImageView
+            android:id="@+id/backbtn0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/swards"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/publish_new_merchant"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <baseframe.core.GScrollView
+        android:layout_below="@id/merchantbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/public_margin"
+            android:paddingRight="@dimen/public_margin"
+            android:paddingBottom="60dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/merchant_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/editor_height"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:background="@drawable/editor_text_conner"
+                android:hint="@string/publish_new_merchant_name"/>
+
+            <EditText
+                android:id="@+id/merchant_telphone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/editor_height"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:background="@drawable/editor_text_conner"
+                android:hint="@string/publish_new_merchant_telphone"/>
+
+            <EditText
+                android:id="@+id/merchant_qq"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/editor_height"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:background="@drawable/editor_text_conner"
+                android:hint="@string/publish_new_merchant_qq"/>
+
+            <EditText
+                android:id="@+id/merchant_weixin"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/editor_height"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:background="@drawable/editor_text_conner"
+                android:hint="@string/publish_new_merchant_weixin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/editor_height"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:orientation="horizontal">
+                <Spinner
+                    android:id="@+id/province"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/editor_text_conner"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/please_select"
+                    android:layout_weight="1"/>
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:id="@+id/city"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/editor_text_conner"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/please_select"
+                    android:layout_weight="1"/>
+                <Spinner
+                    android:id="@+id/district"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/editor_text_conner"
+                    android:spinnerMode="dialog"
+                    android:prompt="@string/please_select"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/merchant_address"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/editor_height"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:background="@drawable/editor_text_conner"
+                android:hint="@string/publish_new_merchant_addrss"/>
+            <Spinner
+                android:id="@+id/merchant_type"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/editor_height"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:spinnerMode="dialog"
+                android:prompt="@string/please_select"
+                android:background="@drawable/editor_text_conner" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/editor_margin_top"
+                android:text="@string/publish_upload_desp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/editor_margin_top"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/add_img0"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/editor_margin_left"
+                    android:layout_marginRight="@dimen/editor_margin_left"
+                    android:layout_weight="1"
+                    android:background="@drawable/editor_text_conner"
+                    android:src="@drawable/uploadimg"/>
+                <ImageView
+                    android:id="@+id/add_img1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/editor_margin_left"
+                    android:layout_marginRight="@dimen/editor_margin_left"
+                    android:background="@drawable/editor_text_conner"
+                    android:src="@drawable/uploadimg"/>
+                <ImageView
+                    android:id="@+id/add_img2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/editor_margin_left"
+                    android:layout_marginRight="@dimen/editor_margin_left"
+                    android:background="@drawable/editor_text_conner"
+                    android:src="@drawable/uploadimg"/>
+
+            </LinearLayout>
+            <EditText
+                android:id="@+id/merchant_desp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="@dimen/editor_margin_top"
+                android:background="@drawable/editor_text_conner"
+                android:text="@string/publish_upload_tip"
+                android:textColor="@color/color_grey_2"
+                android:inputType="none"/>
+
+        </LinearLayout>
+    </baseframe.core.GScrollView>
+    <Button
+        android:id="@+id/submitReviewBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/submit_review"
+        android:textSize="16dp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/conner_btn_blue0">
+    </Button>
+
+
+</RelativeLayout>

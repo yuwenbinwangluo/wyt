@@ -1,0 +1,52 @@
+10
+
+dir
+185
+svn://192.168.1.151/svn/repos1/android/yeeupro/res
+svn://192.168.1.151
+
+
+
+2016-05-25T10:05:27.617521Z
+184
+adminyu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c22c7720-0a39-3c4f-9434-b0774379c06a
+
+values
+dir
+
+drawable
+dir
+
+mipmap-hdpi
+dir
+
+mipmap-xxhdpi
+dir
+
+mipmap-mdpi
+dir
+
+layout
+dir
+
+mipmap-xhdpi
+dir
+
+mipmap-xxxhdpi
+dir
+

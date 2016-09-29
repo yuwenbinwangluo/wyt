@@ -1,0 +1,33 @@
+package game.db.model;
+
+
+
+
+public class LoginInfo {
+	  private int tnum;
+      private String platfrom;
+      private int dnum;
+	
+      public int getTnum() {
+  		return tnum;
+  	}
+  	public void setTnum(int tnum) {
+  		this.tnum = tnum;
+  	}
+	public String getPlatfrom() {
+		return platfrom;
+	}
+	public void setPlatfrom(String platfrom) {
+		this.platfrom = platfrom;
+	}
+	public int getDnum() {
+		return dnum;
+	}
+	public void setDnum(int dnum) {
+		this.dnum = dnum;
+	}
+	
+	
+	
+      
+}

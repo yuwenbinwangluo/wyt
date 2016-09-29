@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ 
+    <declare-styleable name="Border">
+        <attr name="size"  format="dimension" />
+        <attr name="enable"  default="false" format="boolean" />
+        <attr name="b_color"  format="color" />
+    </declare-styleable>
+    
+    <declare-styleable name="SimpleButton">
+        <attr name="upSrc" format="reference|string"/>
+        <attr name="downSrc" format="reference|string"/>
+        <attr name="text" format="reference|string" default=""/>
+        <attr name="tx" format="reference|string"/>
+        <attr name="ty" format="reference|string"/>
+    </declare-styleable>
+    <declare-styleable name="TextFormat">
+        <attr name="fontFamily" format="reference|string"/>
+        <attr name="fontSize" format="dimension" default="12"/>
+        <attr name="fontColor" format="dimension"/>
+    </declare-styleable>
+    
+    <declare-styleable name="SimpleSelectButton">
+        <attr name="isSelected" format="boolean" default="false"/>
+    </declare-styleable>
+ 
+</resources>

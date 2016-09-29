@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    <class name="game.db.model.ClientInfo" table="CLIENT_INFO">
+        <id name="id" column="id" type="long">
+            <meta attribute="scope-set">private</meta>
+            <generator class="assigned">
+            </generator>
+        </id>    
+        <property name="messageInfo"               column="messageInfo"      type="string" />
+        <property name="playerID"               column="playerID"      type="long" />
+        <property name="platform"               column="platform"      type="string" />        
+    </class>
+</hibernate-mapping>

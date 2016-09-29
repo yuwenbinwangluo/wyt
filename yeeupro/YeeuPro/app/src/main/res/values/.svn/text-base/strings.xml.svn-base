@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">YeeuProject</string>
+    <string name="network_is_break">当前网络不可用</string>
+</resources>

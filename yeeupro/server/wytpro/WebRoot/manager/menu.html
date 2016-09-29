@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script type="text/javascript" src="plugin/jquery-1.8.3.js"></script>
+		<script type="text/javascript">
+$(document).ready(function() {
+	$(".titleMenu").click(function() {
+		$(this).nextAll(".contentMenu").toggle();
+		if ($(this).css("background-image").match("go-up") == null) {
+			$(this).css("background-image", "url(images/go-up.gif)");
+		} else {
+			$(this).css("background-image", "url(images/go-down.gif)");
+		}
+		;
+	});
+});
+</script>
+	</head>
+
+	<body bgcolor="#eeeeee">
+		<div class="mainMenu">
+			<div class="titleMenu">
+				产品管理
+			</div>
+			<div class="contentMenu">
+				<a href="uploadfile.html" target="mainFrame">产品上传</a>
+			</div>
+			<div class="contentMenu">
+			   <a href="temp.html" target="mainFrame">保有率统计</a>
+			</div>
+			<div class="contentMenu">
+			   <a href="temp.html" target="mainFrame">服务器数据统计</a>
+			</div>
+			<div class="titleMenu">
+				GM功能
+			</div>
+			<div class="contentMenu">
+			   <a href="temp.html" target="mainFrame">ios推送通知</a>
+			</div>
+			<div class="contentMenu">
+			   <a href="temp.html" target="mainFrame">配置文件修改</a>
+			</div>
+			<div class="contentMenu">
+			   <a href="temp.html" target="mainFrame">第三方支付控制</a>
+			</div>
+		</div>
+	</body>
+</html>

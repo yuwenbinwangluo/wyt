@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/project3/!svn/ver/7567/code/webserver/T3Manager/src/game/db/model
+END
+ViewMessage.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/ViewMessage.java
+END
+FeedbackInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/project3/!svn/ver/7567/code/webserver/T3Manager/src/game/db/model/FeedbackInfo.java
+END
+PlayerCountInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/PlayerCountInfo.java
+END
+LoginInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/LoginInfo.java
+END
+FeedbackInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/project3/!svn/ver/7566/code/webserver/T3Manager/src/game/db/model/FeedbackInfo.hbm.xml
+END
+ChargeInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/ChargeInfo.java
+END
+TotalLoginInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/TotalLoginInfo.java
+END
+ClientInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/ClientInfo.java
+END
+NoticeInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/NoticeInfo.java
+END
+ClientInfo.hbm.xml
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/project3/!svn/ver/7030/code/webserver/T3Manager/src/game/db/model/ClientInfo.hbm.xml
+END

@@ -1,0 +1,27 @@
+package game.db.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class TotalLoginInfo {
+	  List<LoginInfo> list =new ArrayList<LoginInfo>();
+      private String platfrom;
+	
+	
+	public String getPlatfrom() {
+		return platfrom;
+	}
+	public void setPlatfrom(String platfrom) {
+		this.platfrom = platfrom;
+	}
+	public List<LoginInfo> getList() {
+		return list;
+	}
+	public void setList(List<LoginInfo> list) {
+		this.list = list;
+	}
+	
+	
+      
+}

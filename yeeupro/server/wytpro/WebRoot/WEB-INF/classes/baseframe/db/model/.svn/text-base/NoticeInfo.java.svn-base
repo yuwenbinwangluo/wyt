@@ -1,0 +1,21 @@
+package game.db.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class NoticeInfo {
+     private String content;
+     private List<Long> playerlist=new ArrayList<Long>();
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public List<Long> getPlayerlist() {
+		return playerlist;
+	}
+	public void setPlayerlist(List<Long> playerlist) {
+		this.playerlist = playerlist;
+	}     
+}

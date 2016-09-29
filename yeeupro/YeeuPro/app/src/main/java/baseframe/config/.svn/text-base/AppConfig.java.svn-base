@@ -1,0 +1,81 @@
+package baseframe.config;
+
+import android.app.Activity;
+import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+
+import baseframe.tools.Util;
+
+
+public class AppConfig {
+	
+	public enum NET_WORK_STATE{
+		NO,//no-net
+		WIFI,//wifi
+		GPRS,//GPRS-2g
+		N3G,//3G
+		N4G//4G
+	}
+	public enum PLATFORM_OS{
+		NO,
+		ANDROID,//android
+		IOS,//
+		PB,//
+		WIN//windows
+	}
+	
+	public static final int APP_TITLEBAR_H=38;
+	public static int APP_DW=480;
+	public static int APP_DH=762;
+	public static int APP_W=480;
+	public static int APP_H=800;
+	public static int APP_NOTITLE_H=762;
+	public static float DENSITY_W_RATE=1.0f;//
+	public static float DENSITY_RATE=1.0f;//
+	public static int DENSITY_DPI=160;//
+	public static String RES_ROOT_DIR_NAME="/yeeuonline/";
+//	public static final String SERVER_DOMAIN="http://192.168.1.25:8080";
+//	public static final String SERVER_DOMAIN="http://192.168.1.100:8080";
+	public static final String SERVER_DOMAIN="http://60.8.218.198:8090";
+	public static final String SERVER_NAME="/yeeu";
+	public static final String SERVER_SEVERLET_NAME="/manager";
+	
+	
+	public static String server_request_uri="";
+	public static float deltaTime=16.6f;
+	public static int frameRate=60;
+	public static PLATFORM_OS platformOS=PLATFORM_OS.ANDROID;
+	
+	
+
+//	public static String PRO_DATA="";
+	
+	public static void init(Activity activity){
+		AppConfig.server_request_uri=AppConfig.SERVER_DOMAIN+AppConfig.SERVER_NAME+AppConfig.SERVER_SEVERLET_NAME;
+		
+		DisplayMetrics dm = new DisplayMetrics();
+		WindowManager windowMgr = (WindowManager)activity.getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+		windowMgr.getDefaultDisplay().getMetrics(dm);
+		AppConfig.APP_W= dm.widthPixels;
+		AppConfig.APP_H = dm.heightPixels;
+		AppConfig.APP_NOTITLE_H = dm.heightPixels-AppConfig.APP_TITLEBAR_H;
+		AppConfig.DENSITY_W_RATE =((float)AppConfig.APP_W/AppConfig.APP_DW); 
+		AppConfig.DENSITY_RATE = dm.density; 
+		AppConfig.DENSITY_DPI= dm.densityDpi;
+		Util.logInfo("screenW:" + AppConfig.APP_W  + "-----screenH:=" + AppConfig.APP_H+"-----densityRate:"+AppConfig.DENSITY_RATE+"------densityDPI:"+AppConfig.DENSITY_DPI);  
+		
+		AppConfig.deltaTime=1000/AppConfig.frameRate;
+		
+		
+
+//		AppConfig.PRO_DATA=LoadManager.loadString(activity,"test_product_data.txt");
+	}
+	
+	
+	
+	
+	
+	
+
+}
